@@ -1,0 +1,17 @@
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+pgdata/
+.git/
+.husky/
+.vscode/
+.github/
+.commitlintrc.json
+.editorconfig
+.env.*
+.gitignore
+*.md

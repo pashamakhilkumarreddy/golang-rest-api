@@ -59,7 +59,7 @@ Follow these steps to set up and run the application:
 
 #### Docker
 
-This project includes Docker Compose files for production, development, and QA environments. Before using Docker, ensure you have the required environment variables set in the corresponding .env files (see .env.example as a reference).
+This project includes Docker Compose files for production, and staging environments. Before using Docker, ensure you have the required environment variables set in the corresponding .env files (see .env.example as a reference).
 
 To build and run Docker containers:
 
@@ -69,6 +69,12 @@ To build and run Docker containers:
 
     ```bash
     docker run -it -p 5432:5432 -d postgres
+    ```
+
+- Build and run Go API for development or production:
+
+    ```bash
+    docker-compose up
     ```
 
 ## Usage
