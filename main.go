@@ -1,11 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	routes "github.com/pashamakhilkumarreddy/golang-rest-api/api"
+	app "github.com/pashamakhilkumarreddy/golang-rest-api/cmd"
+	utils "github.com/pashamakhilkumarreddy/golang-rest-api/utils"
+)
 
 func main() {
 	fmt.Println("Welcome Go Gorilla Mux REST API")
-	a := App{}
+	a := &app.App{}
 	a.Initialize()
+	routes.InitializeRoutes(a)
 
-	a.Run(getEnv("PORT", "8081"))
+	a.Run(utils.GetEnv("PORT", "8081"))
 }

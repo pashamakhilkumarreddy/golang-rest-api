@@ -13,10 +13,10 @@ import (
 	"sync"
 	"testing"
 
-	main "github.com/pashamakhilkumarreddy/golang-rest-api"
+	app "github.com/pashamakhilkumarreddy/golang-rest-api/cmd"
 )
 
-var a main.App
+var a app.App
 var mutex sync.Mutex
 
 func TestMain(m *testing.M) {
