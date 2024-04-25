@@ -12,6 +12,14 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    env:
+      ENV: ${{ secrets.ENV }}
+      PORT: ${{ secrets.PORT }}
+      DATABASE_HOST: ${{ secrets.DATABASE_HOST }}
+      DATABASE_PORT: ${{ secrets.DATABASE_PORT }}
+      DATABASE_USER: ${{ secrets.DATABASE_USER }}
+      DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+      DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -23,6 +31,16 @@ jobs:
 
     - name: Install dependencies
       run: go mod download
+
+    - name: Create .env file
+      run: |
+        echo "ENV=${ENV}" >> .env
+        echo "PORT=${PORT}" >> .env
+        echo "DATABASE_HOST=${DATABASE_HOST}" >> .env
+        echo "DATABASE_PORT=${DATABASE_PORT}" >> .env
+        echo "DATABASE_USER=${DATABASE_USER}" >> .env
+        echo "DATABASE_PASSWORD=${DATABASE_PASSWORD}" >> .env
+        echo "DATABASE_NAME=${DATABASE_NAME}" >> .env
 
     - name: Run tests
       run: go test -v ./...
